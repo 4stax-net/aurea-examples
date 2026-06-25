@@ -9,6 +9,10 @@ directly; aurea itself does not require any of them.
 - [`spec-driven-development/`](spec-driven-development/AGENTS.md) — the common
   framework-declaration contract plus concrete OpenSpec, Speckit, and Autospec
   shapes.
+- [`modules/`](modules/AGENTS.md) — how to define and adopt your own aurea
+  module (the `harness-module` manifest plus the adoption declaration), with
+  worked examples: `testing`, `security-review`, `commit-conventions`,
+  `deploy` (dependencies), and `observability` (external + MCP-backed).
 - [`github-actions/aurea-pr-comment.yml`](github-actions/aurea-pr-comment.yml) —
   a GitHub Action that posts the compliance report as a PR comment.
 
