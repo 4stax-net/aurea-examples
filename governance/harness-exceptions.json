@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "exceptions": [
+    {
+      "principle_id": "PRIN-EXAMPLE-001",
+      "reason": "One legacy setting changes irreversibly during a bounded format migration; reversibility is restored once the migration completes.",
+      "owner": "platform-team",
+      "expires_on": "2026-09-23",
+      "tracking_url": "https://github.com/4stax-net/aurea-examples/issues/1",
+      "adr": "ADR-0002"
+    }
+  ]
+}

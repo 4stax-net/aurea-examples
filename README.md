@@ -6,6 +6,14 @@ directly; aurea itself does not require any of them.
 
 ## Contents
 
+- [`harness-adoption/`](harness-adoption/README.md) — a full, annotated
+  `harness-adoption` block spanning every enforcement level, a `runbook` module,
+  a bring-your-own module, and a `track: latest` version pin.
+- [`governance/`](governance/README.md) — the deviation-tracking tiers worked
+  end to end: a principle, the ADRs that support and deviate from it, and a
+  temporary `harness-exceptions.json` record.
+- [`runbook/`](runbook/README.md) — a generic operational `RUNBOOK.md` (deploy,
+  rollback, incident response) that a `runbook` module's `path` points at.
 - [`spec-driven-development/`](spec-driven-development/AGENTS.md) — the common
   framework-declaration contract plus concrete OpenSpec, Speckit, and Autospec
   shapes.
