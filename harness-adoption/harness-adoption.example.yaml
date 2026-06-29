@@ -1,0 +1,52 @@
+# Full harness-adoption block, valid against:
+#   https://github.com/4stax-net/aurea/blob/v0.1.6/templates/harness-adoption.schema.json
+#
+# Copy this into the "## Harness Adoption" section of your root
+# AGENTS.md as a fenced ```yaml block. Delete the modules you do not
+# adopt — a module that is not listed is simply not adopted, and the
+# checker runs no checks for it.
+kind: harness-adoption
+modules:
+  # The harness module itself, pinned to a concrete version and enforced
+  # as a blocking gate. The registration block is written by
+  # `harness register`; it records the central registration issue so the
+  # Aurea registry can discover this adopter.
+  - module: aurea
+    version: "0.1.6"
+    enforcement: required          # FAIL/blocking under a failure gate.
+    registration:
+      status: registered           # registered | unregistered
+      issue: https://github.com/4stax-net/aurea/issues/123
+
+  # Spec-driven development. `framework` names the chosen tool so an
+  # agent that does not know it can look it up; `path` points at a real
+  # local workflow file the checker confirms exists.
+  - module: spec-driven-development
+    framework: OpenSpec
+    path: openspec/AGENTS.md
+    enforcement: required
+
+  # A contract module pinned to an integer contract version. The README
+  # module asserts the repository keeps a conformant README.
+  - module: readme
+    track: latest                  # keep current; `resolved` records the
+    resolved: "1"                  # concrete version actually enforced.
+    enforcement: required          # (when `track` is set, `resolved` is
+                                   #  required by the schema.)
+
+  # Operational runbook discovery. `path` points at a local runbook the
+  # checker confirms exists; a missing path emits a finding at this
+  # module's enforcement level — here a non-blocking ADVISORY.
+  - module: runbook
+    version: "1"
+    path: docs/RUNBOOK.md
+    enforcement: advisory          # non-blocking warning.
+
+  # A bring-your-own (BYO) module Aurea does not define, identified by
+  # its canonical `uri`. Since v0.1.4 a BYO module honors its declared
+  # enforcement: report-only -> REPORT (informational, non-blocking).
+  # Aurea never FAILs a module it does not define, so declaring it
+  # report-only keeps it non-blocking even under a strict gate.
+  - module: openspec-harness
+    uri: https://github.com/4stax-net/openspec-harness
+    enforcement: report-only       # informational REPORT only.
