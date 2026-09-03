@@ -19,5 +19,7 @@ directly; aurea itself does not require any of them.
 ## Versioning
 
 Tags track the aurea release they were cut alongside. Pin links and fetches to
-a tag (for example `v0.1.0`) so a moving `main` never breaks an adopter's
+a tag (for example `v0.1.8`) so a moving `main` never breaks an adopter's
 references.
+
+These examples currently track aurea [`v0.1.8`](https://github.com/4stax-net/aurea/releases/tag/v0.1.8).
